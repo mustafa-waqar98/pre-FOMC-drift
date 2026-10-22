@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.venv/
+data/raw/*.parquet
+data/raw/*.csv.gz
