@@ -38,6 +38,8 @@ assert row["px_1600"] == 103.0, row["px_1600"]
 assert row["n5_1345"] == 2, row["n5_1345"]
 assert row["n_day"] == 5, row["n_day"]
 assert row["first_tm_day"].startswith("09:31"), row["first_tm_day"]
+for q in (sql, grid.days_sql("taqmsec"), grid.days_sql("taq")):
+    assert "%" not in q, "percent sign in query breaks the WRDS driver"
 assert str(grid.out_path("x", "auto", 2019)).endswith("dev/spy_grid_auto_2019.csv")
 assert str(grid.out_path("x", "auto", 2020)).endswith("holdout/spy_grid_auto_2020.csv")
 print("all checks passed")

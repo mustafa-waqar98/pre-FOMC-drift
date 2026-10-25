@@ -92,10 +92,15 @@ order by g.gt
 """
 
 
+def days_sql(schema):
+    # No percent sign allowed in any query: the WRDS driver reads a bare one
+    # as a parameter marker and fails with "immutabledict is not a sequence".
+    return ("select table_name from information_schema.tables "
+            "where table_schema = '%s' and table_name ~ '^ctm_[0-9]{8}$'" % schema)
+
+
 def list_days(db, schema):
-    sql = ("select table_name from information_schema.tables "
-           "where table_schema = '%s' and table_name like 'ctm\\_%%'" % schema)
-    names = db.raw_sql(sql)["table_name"].tolist()
+    names = db.raw_sql(days_sql(schema))["table_name"].tolist()
     days = {}
     for n in names:
         mo = re.fullmatch(r"ctm_(\d{4})(\d{2})(\d{2})", n)
