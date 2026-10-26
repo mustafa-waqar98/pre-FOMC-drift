@@ -96,14 +96,14 @@ def days_sql(schema):
     # No percent sign allowed in any query: the WRDS driver reads a bare one
     # as a parameter marker and fails with "immutabledict is not a sequence".
     return ("select table_name from information_schema.tables "
-            "where table_schema = '%s' and table_name ~ '^ctm_[0-9]{8}$'" % schema)
+            "where table_schema = '%s' and table_name ~ '^ctm?_[0-9]{8}$'" % schema)
 
 
 def list_days(db, schema):
     names = db.raw_sql(days_sql(schema))["table_name"].tolist()
     days = {}
     for n in names:
-        mo = re.fullmatch(r"ctm_(\d{4})(\d{2})(\d{2})", n)
+        mo = re.fullmatch(r"ctm?_(\d{4})(\d{2})(\d{2})", n)
         if mo:
             days["%s-%s-%s" % mo.groups()] = n
     return days
@@ -166,6 +166,7 @@ def main():
     ap.add_argument("--source", choices=["auto", "taq", "taqmsec"], default="auto")
     ap.add_argument("--sample", type=int, default=0, help="random sample of N days, for cross-checks")
     ap.add_argument("--probe", action="store_true")
+    ap.add_argument("--probe-day", default=PROBE_DAY)
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
@@ -185,11 +186,15 @@ def main():
           % (len(day_map), min(day_map), max(day_map)))
 
     if a.probe:
-        s, t = day_map[PROBE_DAY]
+        if a.probe_day >= "%d-01-01" % HOLDOUT_START_YEAR:
+            sys.exit("probe is limited to development years")
+        s, t = day_map[a.probe_day]
         m = resolve_columns(db, s, t)
         print("probe table:", s, t)
         print("column map:", m)
         df = query_day(db, s, t, m)
+        if df is None:
+            sys.exit("probe query failed, see the error above")
         print(df.to_string())
         return
 
