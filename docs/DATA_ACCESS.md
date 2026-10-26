@@ -1,6 +1,6 @@
 # Data access findings
 
-STATUS: PENDING (waiting on risk-free and VIX files)
+STATUS: APPROVED
 
 ## WRDS TAQ read access (checked 2026-10-25, first trading day of each year)
 
@@ -24,7 +24,7 @@ test the window, which ends before the statement.
 
 Source for intraday S&P 500 exposure (SPY or e-mini futures) for 1994-2008 and
 2018-2026, or a redesign around what is available. Until this file says
-STATUS: APPROVED with a list of files, the DATA gate is not satisfied.
+STATUS: APPROVED
 
 The grid format (last price at fixed Eastern clock times per day) is source
 independent, so code written for T03 and T04 stays valid.
@@ -54,3 +54,22 @@ evidence enters as published results, not as an estimate.
 
 ## Still missing before the DATA gate can be approved
 Daily risk-free rate and VIX history.
+
+## Approval, 2026-10-25
+
+Approved inputs (DATA gate satisfied):
+- data/raw/es_grid/dev/ and data/raw/es_grid/holdout/ (ES 1-minute grid, 2010-06 to 2026-10)
+- data/raw/daily_series/{dev,holdout}/ff_daily.csv, cboe_vix.csv, crsp_sp500.csv
+- data/raw/fomc_meetings_raw.csv and data/processed/fomc_calendar.csv
+
+Cleaning rules, fixed in advance:
+- VIX: drop rows with a missing close; for duplicate dates keep the last row. The 2 duplicates
+  (2003-09-22, 2003-10-30) share the same close; the 3 missing closes (1997-01-31, 1997-11-26,
+  2003-08-24) all precede the sample. No effect on 2010 onward.
+- Risk-free: Fama-French file ends 2026-08-31. Futures returns are treated as excess returns,
+  so the rate is used only in the SPY cross-check.
+- VIX is daily only. An intraday VIX change is not available; the communication versus
+  arbitrage test needs a different source or a weaker version. Decide at T09.
+- Holdout folders must not be opened before the FROZEN gate.
+
+Not gating: WRDS SPY grid for 2009-2017 (cross-check of futures against SPY).
