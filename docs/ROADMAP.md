@@ -1,12 +1,12 @@
 # Roadmap: 12 working days (2026-10-26 to 2026-11-06)
 
-One task per day. A daily run takes the first unchecked task whose gate is
+If this file and the run prompt disagree about a gate, this file wins. One task per day. A daily run takes the first unchecked task whose gate is
 satisfied, finishes it, ticks the box, appends one line to docs/RUN_LOG.md,
 commits and pushes. If the next task is gated on missing data, the run takes the
 first unchecked task from the BACKLOG instead. Tasks are in dependency order.
 
 ## Gates
-- DATA: files exist in data/raw/ for intraday prices, VIX, and the risk-free rate.
+- DATA: docs/DATA_ACCESS.md says STATUS: APPROVED and the files it lists exist in data/raw/. Presence of files alone does not satisfy it.
 - FROZEN: docs/PRE_ANALYSIS_PLAN.md is committed and tag `spec-frozen` exists.
 
 ## Main sequence
