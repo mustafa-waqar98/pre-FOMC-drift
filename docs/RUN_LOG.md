@@ -6,3 +6,4 @@ run_date | task | outcome | blockers
 2026-10-25 | data route | user declined paid vendor; Databento free credit route scripted (cost estimate first), grid logic tested on synthetic bars | needs user: run --estimate on own computer, paste output
 2026-10-25 | ES grid received | dev sanity pass clean: 2457 valid days, 4 rolls per year, all 77 dev FOMC dates present (2 in roll windows); holdout not opened | needs user: run 02_pull_daily_series.py on WRDS for rf and VIX
 2026-10-25 | data gate | VIX and rf received and checked on dev years; DATA gate APPROVED | nothing blocking T02-T07; holdout untouched
+2026-10-25 | cross-check | ES vs SPY validated on 2010-2017 dev days: corr 0.9966, gaps explained by SPY ex-dividend Fridays and one bad SPY print | nothing blocking

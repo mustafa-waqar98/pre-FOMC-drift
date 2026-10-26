@@ -73,3 +73,17 @@ Cleaning rules, fixed in advance:
 - Holdout folders must not be opened before the FROZEN gate.
 
 Not gating: WRDS SPY grid for 2009-2017 (cross-check of futures against SPY).
+
+## Futures versus SPY cross-check (2010-2017, development years)
+
+Script: code/02_crosscheck_es_spy.py. Output: output/tables/crosscheck_es_spy.txt.
+
+- Correlation of 24 hour returns to the 13:45 cutoff: 0.9966 over 1,869 windows.
+- Mean gap 0.63 bps. 31 of the 33 days with a gap above 25 bps are third Fridays of
+  March, June, September and December, where SPY goes ex-dividend (mean gap 49.5 bps).
+  Excluding those days the gap has a standard deviation of 3.2 bps.
+- The other two (2012-05-25 and 2012-05-29) come from one bad SPY print at 13:45 on
+  2012-05-25 (131.5355 against 132.49 and 132.415 either side). The futures are clean.
+  SPY sale-condition filtering is not applied; that is why SPY stays a cross-check only.
+- None of the large gaps fall on an FOMC date.
+- Conclusion: the futures grid is validated against an independent source.

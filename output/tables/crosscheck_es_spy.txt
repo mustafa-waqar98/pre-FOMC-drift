@@ -1,0 +1,4 @@
+common days 1901, returns compared 1869
+correlation 0.9966
+all days: mean 0.63 bps, std 7.15 bps
+days over 25 bps: 33, of which third Friday of Mar/Jun/Sep/Dec: 31
