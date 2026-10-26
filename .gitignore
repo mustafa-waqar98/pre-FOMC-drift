@@ -3,3 +3,5 @@ __pycache__/
 .venv/
 data/raw/*.parquet
 data/raw/*.csv.gz
+es_grid*/raw/
+*.dbn.zst
