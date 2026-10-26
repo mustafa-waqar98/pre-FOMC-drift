@@ -2,3 +2,9 @@ common days 1901, returns compared 1869
 correlation 0.9966
 all days: mean 0.63 bps, std 7.15 bps
 days over 25 bps: 33, of which third Friday of Mar/Jun/Sep/Dec: 31
+mean gap on those quarterly days: 49.5 bps (SPY goes ex-dividend)
+excluding quarterly days: std 3.22 bps
+other outliers (likely bad SPY prints):
+date
+2012-05-25    72.9
+2012-05-29   -72.5
