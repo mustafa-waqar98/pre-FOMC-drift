@@ -12,7 +12,7 @@ first unchecked task from the BACKLOG instead. Tasks are in dependency order.
 ## Main sequence
 - [x] T01 WRDS extraction script for intraday SPY (TAQ) returns to the cutoff, run on the WRDS server, outputs one small daily file. Include a README with exact run steps and expected output columns. No gate.
 - [x] T02 LaTeX paper skeleton (article class, natbib, section stubs, compiles clean) plus bibliography file with entries marked UNVERIFIED. Draft pre-analysis plan v1. No gate.
-- [ ] T03 Panel builder and merge audit (one row per trading day, row counts logged at every merge, half-day and missing-trade flags), tested on synthetic fixtures. No gate.
+- [x] T03 Panel builder and merge audit (one row per trading day, row counts logged at every merge, half-day and missing-trade flags), tested on synthetic fixtures. No gate.
 - [ ] T04 Estimation code: the period by state specification, episode-clustered inference, wild bootstrap, permutation placebo on matched-VIX non-Fed days. Power simulation with episode clustering. Tested on synthetic data. No gate.
 - [ ] T05 Build real panel and reproduce the 1994-2019 premium and the post-2015 decline. Gate: DATA.
 - [ ] T06 Pre-2020 only: calm/anxious split, placebo, recalibrated power using realized volatility. Gate: DATA.

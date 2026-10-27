@@ -8,3 +8,4 @@ run_date | task | outcome | blockers
 2026-10-25 | data gate | VIX and rf received and checked on dev years; DATA gate APPROVED | nothing blocking T02-T07; holdout untouched
 2026-10-25 | cross-check | ES vs SPY validated on 2010-2017 dev days: corr 0.9966, gaps explained by SPY ex-dividend Fridays and one bad SPY print | nothing blocking
 2026-10-26 | T02 | paper skeleton, UNVERIFIED bib, draft pre-analysis plan v1 (not frozen) added | none
+2026-10-27 | T03 | code/03_build_panel.py + tests/test_panel.py: panel (2457 dev days, merges logged, flags half_day/missing_trade/cash_closed/valid; holdout guard); synthetic tests pass; 53 US-holiday ES days have no cash data (flagged), 2 duplicate VIX dates in 2003 identical close | none
