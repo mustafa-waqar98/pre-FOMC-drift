@@ -1,0 +1,8 @@
+FOMC meetings usable=77 of 77; non-FOMC days=2239; VIX threshold (dev median)=15.07
+mean excess window return bps: FOMC=6.2  non-FOMC=4.3
+all 2010-2019                n= 77 mean=    6.2 bps  se(yr-cluster)=  6.9  t= 0.89
+2010-2014                    n= 37 mean=    9.8 bps  se(yr-cluster)= 14.4  t= 0.68
+2015-2019                    n= 40 mean=    2.8 bps  se(yr-cluster)=  3.7  t= 0.76
+calm                         n= 39 mean=   -6.6 bps  se(yr-cluster)=  3.3  t=-2.01
+anxious                      n= 38 mean=   19.3 bps  se(yr-cluster)= 11.4  t= 1.69
+anxious premium a+b=19.3 se=11.4
