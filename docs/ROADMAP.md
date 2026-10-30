@@ -15,7 +15,7 @@ first unchecked task from the BACKLOG instead. Tasks are in dependency order.
 - [x] T03 Panel builder and merge audit (one row per trading day, row counts logged at every merge, half-day and missing-trade flags), tested on synthetic fixtures. No gate.
 - [x] T04 Estimation code: the period by state specification, episode-clustered inference, wild bootstrap, permutation placebo on matched-VIX non-Fed days. Power simulation with episode clustering. Tested on synthetic data. No gate.
 - [x] T05 Build real panel and reproduce the 1994-2019 premium and the post-2015 decline. Gate: DATA.
-- [ ] T06 Pre-2020 only: calm/anxious split, placebo, recalibrated power using realized volatility. Gate: DATA.
+- [x] T06 Pre-2020 only: calm/anxious split, placebo, recalibrated power using realized volatility. Gate: DATA.
 - [ ] T07 Freeze the specification. Write PRE_ANALYSIS_PLAN.md final, record code hash, tag `spec-frozen`. Gate: DATA.
 - [ ] T08 Run the holdout once and save raw output unedited. Gate: FROZEN. Never rerun.
 - [ ] T09 VIX-change test, press-conference subsample, robustness table. Gate: FROZEN.

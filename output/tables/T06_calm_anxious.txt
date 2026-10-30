@@ -1,0 +1,13 @@
+n_meetings=77 thr=15.07 n_calm=39 n_anx=38
+calm a=-6.6 (se 3.3); anxious-calm diff b=26.0 (se 11.6, t=2.24)
+anxious premium a+b=19.3 se=11.4
+wild cluster bootstrap p(diff=0)=0.059
+continuous: a=-20.2 c=1.60 per VIX pt (se 0.97, t=1.65)
+placebo all      n= 77 fed-minus-matched=   -8.6 bps  p=0.904
+placebo anxious  n= 38 fed-minus-matched=   -5.3 bps  p=0.914
+placebo calm     n= 39 fed-minus-matched=  -10.8 bps  p=0.589
+realized sd bps: meetings=50.8 calm=30.1 anx=63.5 non-FOMC=78.1; ICC(year)=0.071; mean meetings/yr=7.7, years=10
+MDE(80% power) dev full (10 yrs)                  G=10 k=8 sd=50.8 -> 21.5 bps
+MDE(80% power) holdout all (7 yrs x 8)            G=7 k=8 sd=50.8 -> 27.4 bps
+MDE(80% power) holdout anxious half (7 yrs x 4)   G=7 k=4 sd=63.5 -> 41.9 bps
+MDE(80% power) holdout anxious half, sd=calm sd   G=7 k=4 sd=30.1 -> 19.9 bps

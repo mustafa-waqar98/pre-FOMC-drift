@@ -1,0 +1,5 @@
+design,clusters,per_cluster,sd_bps,mde_bps
+dev full (10 yrs),10,8,50.82192923777548,21.533559128945154
+holdout all (7 yrs x 8),7,8,50.82192923777548,27.414807776090072
+holdout anxious half (7 yrs x 4),7,4,63.45650668725486,41.922194115163975
+"holdout anxious half, sd=calm sd",7,4,30.052118311090496,19.853767614699922
