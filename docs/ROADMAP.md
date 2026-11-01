@@ -24,7 +24,7 @@ first unchecked task from the BACKLOG instead. Tasks are in dependency order.
 - [ ] T12 Full compile, referee-style self review, fix list, final README, release tag. No gate.
 
 ## Backlog (use when the next main task is gated)
-- [ ] B1 Draft the identification and threats section from docs/DESIGN_NOTES.md.
+- [x] B1 Draft the identification and threats section from docs/DESIGN_NOTES.md.
 - [ ] B2 Literature table: each paper, sample, window, headline estimate, what it identifies. Mark every number UNVERIFIED until T11.
 - [ ] B3 Notation and variable definition appendix.
 - [ ] B4 Reproducibility: Makefile, environment file, data dictionary.

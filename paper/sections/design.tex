@@ -1,2 +1,52 @@
 \section{Empirical Design}
-% TODO: stub.
+
+\subsection{Identification}
+The object of interest is the return earned in the window that ends before the
+FOMC statement is released, in excess of the risk-free rate. Close-to-close daily
+returns include the announcement reaction and therefore measure a different
+quantity, so the primary test uses intraday prices. The comparison of interest is
+between meetings held in calm and in anxious states, where the state is the VIX
+close five trading days before the meeting (lagged one week) and the anxious
+threshold is fixed at the development-sample median of 15.07 VIX points. The
+threshold is not re-estimated on the holdout. The secondary specification
+replaces the indicator with the continuous lagged VIX.
+
+Identification rests on the timing of the window and on the state being
+predetermined. Lagging the state by a week limits contamination from
+anticipation of the meeting itself. The claim is a conditional association
+between pre-announcement returns and the prior volatility state, not a causal
+effect of the Committee's actions, and the paper is framed accordingly.
+
+\subsection{Threats to inference}
+\paragraph{Episode clustering.} Anxious meetings concentrate in a small number of
+volatility episodes, so the effective number of independent observations is far
+smaller than the number of meetings. We cluster by calendar year as an
+ex-ante proxy for episodes, use CR1 cluster-robust standard errors, and treat
+the wild cluster bootstrap-t as primary because the holdout has few clusters.
+Asymptotic $t$ statistics are descriptive only.
+
+\paragraph{Power.} With a small number of independent episodes the design can
+detect a large premium but cannot distinguish a half-sized premium from zero. We
+therefore report minimum detectable effects from a clustered power simulation
+using realized volatility, and present non-rejections as bounds on the premium
+rather than as evidence of absence.
+
+\paragraph{Release-time measurement.} Statement release times are assigned by
+rule rather than observed per meeting, so the window may include a few minutes of
+the announcement reaction in some early meetings. This is flagged as unverified
+and affects the level of the estimate more than the state comparison.
+% UNVERIFIED: per-meeting release times from primary source.
+
+\paragraph{Non-FOMC confounds.} A premium measured on FOMC days could reflect
+generic high-volatility or pre-event compensation. The matched-VIX placebo
+compares FOMC windows with non-FOMC windows on days with similar lagged VIX, so a
+Fed-specific premium requires an excess over matched days.
+
+\paragraph{State measurement.} VIX comparability has changed over time as
+short-dated option volume has grown. This matters mainly for the exploratory
+VIX-change test, which is outside the frozen specification.
+
+\paragraph{Specification search.} The specification, threshold, outcome window and
+inference procedure are fixed in the pre-analysis plan before any estimate on
+post-2019 data, and the holdout is run once. Tests outside the plan are labelled
+exploratory and cannot change the primary conclusion.
