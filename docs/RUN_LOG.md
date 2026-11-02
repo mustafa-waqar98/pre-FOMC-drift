@@ -15,3 +15,4 @@ run_date | task | outcome | blockers
 2026-10-31 | T07 | PRE_ANALYSIS_PLAN.md finalized (threshold VIX 15.07, outcome 16:00 prev to 13:45, year-clustered CR1 + wild bootstrap, H1-H3, power statement, code SHA-256 table); tag spec-frozen created; holdout not touched | none
 2026-10-31 | T07-note | tag spec-frozen exists locally at 83a016b but push of tags is rejected (HTTP 403); FROZEN gate not satisfied on remote until user pushes tag | user must run: git fetch && git tag spec-frozen 83a016b && git push origin spec-frozen
 2026-11-01 | B1 | paper/sections/design.tex drafted (identification + threats) from DESIGN_NOTES/PRE_ANALYSIS_PLAN; no numbers beyond docs; T08 still gated (spec-frozen tag not on remote) | FROZEN gate: user must push tag
+2026-11-02 | B2 | docs/LIT_TABLE.md written, all cells UNVERIFIED, no web fetch; T08 still gated (spec-frozen tag not on remote) | FROZEN gate: user must push tag
