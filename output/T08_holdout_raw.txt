@@ -1,0 +1,10 @@
+HOLDOUT n_meetings=52 (scheduled in range=53) thr=15.07 n_calm=9 n_anx=43 years=[np.int32(2020), np.int32(2021), np.int32(2022), np.int32(2023), np.int32(2024), np.int32(2025), np.int32(2026)]
+all-meeting mean=38.3 bps sd=80.9
+calm a=40.4 (se 5.4); b=-2.6 (se 21.9, t=-0.12)
+H1/H2 anxious premium a+b=37.8 se=19.8 t=1.91; dev anxious 19.3
+wild bootstrap p(b=0)=0.946
+wild bootstrap p(a+b=0)=0.149
+continuous: a=-65.0 c=5.02 (se 2.02, t=2.48)
+placebo all      n= 52 fed-minus-matched=   55.5 bps p=0.002
+placebo anxious  n= 43 fed-minus-matched=   38.3 bps p=0.030
+placebo calm     n=  9 fed-minus-matched=   35.2 bps p=0.209
