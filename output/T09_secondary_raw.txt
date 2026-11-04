@@ -1,0 +1,24 @@
+== VIX-change test: r = a + c*dVIX (dVIX = VIX[t-1]-VIX[t-5], points) [exploratory]
+all                                n= 52 a=   37.5 slope= -3.39 (se 7.24, t=-0.47) wildp=0.876
+joint level+change: c_level=5.47 (t=3.14) c_change=1.84 (t=0.48)
+== Press-conference subsample (flag known only 2021+; 2020 UNVERIFIED -> excluded)
+flag counts: {1.0: 45, nan: 7}
+press=1 anxious premium            n= 45 nAnx= 37 mean=  30.5 anxPrem=  28.3 (se 20.5) wildp=0.221
+press=0 anxious premium            n=0 too small
+2021+ (flag-known sample)          n= 45 nAnx= 37 mean=  30.5 anxPrem=  28.3 (se 20.5) wildp=0.221
+== Robustness (anxious premium a+b, wild p for a+b=0)
+baseline thr 15.07                 n= 52 nAnx= 43 mean=  38.3 anxPrem=  37.8 (se 19.8) wildp=0.149
+threshold 18                       n= 52 nAnx= 30 mean=  38.3 anxPrem=  51.6 (se 20.7) wildp=0.092
+threshold 20                       n= 52 nAnx= 23 mean=  38.3 anxPrem=  59.2 (se 22.3) wildp=0.194
+threshold 25                       n= 52 nAnx=  9 mean=  38.3 anxPrem=  69.5 (se 30.4) wildp=0.51
+holdout-median threshold           n= 52 nAnx= 26 mean=  38.3 anxPrem=  48.7 (se 25.2) wildp=0.284
+drop 2020                          n= 45 nAnx= 37 mean=  30.5 anxPrem=  28.3 (se 20.5) wildp=0.221
+drop 2021                          n= 44 nAnx= 35 mean=  49.5 anxPrem=  51.9 (se 17.2) wildp=0.114
+drop 2022                          n= 44 nAnx= 35 mean=  29.5 anxPrem=  26.6 (se 20.4) wildp=0.256
+drop 2023                          n= 44 nAnx= 39 mean=  40.7 anxPrem=  41.6 (se 21.7) wildp=0.199
+drop 2024                          n= 44 nAnx= 39 mean=  36.1 anxPrem=  34.8 (se 21.9) wildp=0.251
+drop 2025                          n= 44 nAnx= 35 mean=  38.2 anxPrem=  37.7 (se 24.7) wildp=0.3
+drop 2026                          n= 47 nAnx= 38 mean=  43.1 anxPrem=  43.8 (se 21.6) wildp=0.111
+excl 2020 (covid)                  n= 45 nAnx= 37 mean=  30.5 anxPrem=  28.3 (se 20.5) wildp=0.221
+winsorized 5/95                    n= 52 nAnx= 43 mean=  37.0 anxPrem=  35.9 (se 16.2) wildp=0.121
+no rf adjustment                   n= 52 nAnx= 43 mean=  39.4 anxPrem=  38.8 (se 19.8) wildp=0.135
