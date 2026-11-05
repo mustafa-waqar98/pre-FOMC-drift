@@ -26,7 +26,7 @@ first unchecked task from the BACKLOG instead. Tasks are in dependency order.
 ## Backlog (use when the next main task is gated)
 - [x] B1 Draft the identification and threats section from docs/DESIGN_NOTES.md.
 - [x] B2 Literature table: each paper, sample, window, headline estimate, what it identifies. Mark every number UNVERIFIED until T11.
-- [ ] B3 Notation and variable definition appendix.
+- [x] B3 Notation and variable definition appendix.
 - [ ] B4 Reproducibility: Makefile, environment file, data dictionary.
 - [ ] B5 Sensitivity design: alternative window lengths and cutoffs, pre-specified.
 

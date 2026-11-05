@@ -1,2 +1,52 @@
 \section{Notation and Additional Material}
-% TODO (B3): notation and variable definitions.
+\label{app:notation}
+
+\subsection{Notation}
+All returns are in basis points unless stated. Meeting $m$ indexes scheduled FOMC meetings; $t(m)$ is the meeting date and $t(m)^{-}$ the previous valid session.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}lp{0.58\textwidth}l@{}}
+\hline
+Symbol & Definition & Unit \\
+\hline
+$P_{\mathrm{prev}}$ & 16:00 ET last price on the previous valid session & index points \\
+$P_{\mathrm{end}}$ & Last price at the end of the pre-announcement window: 13:45 ET (14:00 ET release, from 2013-03-01 and throughout the holdout) or 14:00 ET (14:15 ET release, earlier) & index points \\
+$rf_m$ & Risk-free rate over the same interval (daily file) & bps \\
+$r_m$ & Outcome: $10^{4}\,[\ln(P_{\mathrm{end}}/P_{\mathrm{prev}})] - rf_m$ & bps \\
+$\mathrm{VIX}_m$ & VIX close five trading days before the meeting date & VIX points \\
+$\tau$ & Anxiety threshold, fixed at 15.07 (development-sample median) & VIX points \\
+$A_m$ & $\mathbf{1}\{\mathrm{VIX}_m > \tau\}$, the anxious indicator & 0/1 \\
+$a$ & Intercept: premium in calm meetings & bps \\
+$b$ & Anxious minus calm difference & bps \\
+$a+b$ & Premium in anxious meetings (primary test statistic) & bps \\
+$c$ & Slope of $r_m$ on $\mathrm{VIX}_m$ in the secondary specification & bps per point \\
+$\varepsilon_m$ & Disturbance & bps \\
+$g(m)$ & Cluster (calendar year, a provisional proxy for volatility episodes) & --- \\
+$G$ & Number of clusters (about seven in the holdout) & --- \\
+\hline
+\end{tabular}
+\caption{Variables and parameters.}
+\end{table}
+
+\subsection{Specifications}
+Primary:
+\begin{equation}
+r_m = a + b\,A_m + \varepsilon_m, \qquad H_1: a+b>0 .
+\end{equation}
+Secondary, reported alongside and not substituted:
+\begin{equation}
+r_m = a + c\,\mathrm{VIX}_m + \varepsilon_m .
+\end{equation}
+Inference uses CR1 cluster-robust standard errors by $g(m)$, wild cluster bootstrap-$t$ (999 draws, seed 1) for $b=0$ and $a+b=0$, and a matched-VIX permutation placebo against non-FOMC days (2000 draws, seed 2). With few clusters the bootstrap $p$-values are primary and asymptotic $t$ statistics descriptive.
+
+\subsection{Hypotheses}
+\begin{description}
+\item[H1] $a+b>0$ in the holdout.
+\item[H2] The holdout anxious premium is below the development estimate of 19.3 bps.
+\item[H3] $b>0$.
+\end{description}
+
+\subsection{Sample definitions}
+Development sample: scheduled meetings from 2010-06 to 2019-12-31. Holdout: scheduled meetings from 2020-01-01. Unscheduled meetings are excluded. A meeting is usable if the meeting day and previous session are valid (no half-day, missing-trade or cash-closed flag) and $r_m$ and $\mathrm{VIX}_m$ are non-missing. Release times are a calendar rule, not observed per meeting (UNVERIFIED).
