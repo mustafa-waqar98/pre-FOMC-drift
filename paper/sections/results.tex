@@ -1,2 +1,17 @@
 \section{Results}
-% TODO: stub.
+All holdout estimates come from a single run of the frozen specification; secondary tests are labelled exploratory. Standard errors are clustered by year (seven clusters), so we report wild cluster bootstrap $p$-values alongside.
+
+\paragraph{Primary holdout test.} Table~\ref{tab:primary} reports the primary specification. The anxious-state premium is 37.8~bps ($t=1.91$, wild $p=0.149$) against 19.3~bps in development; its sign matches development but it does not reject zero at 5\%. The key contrast $b$ (anxious minus calm) is $-2.6$~bps (wild $p=0.946$): it does not replicate the development difference of 26.0~bps. The reason is the calm cell, whose mean rises from $-6.6$ to 40.4~bps. That cell has only nine meetings, so $b$ is weakly identified (Figures~\ref{fig:scatter} and~\ref{fig:state}). The continuous VIX slope is 5.02~bps per point ($t=2.48$), but it is a single-sample, seven-cluster estimate. The matched-VIX placebo on non-meeting days gives a Fed-minus-matched difference of 55.5~bps ($p=0.002$) for all meetings and 38.3~bps ($p=0.030$) for anxious meetings, so the window return around meetings exceeds that on comparable non-meeting days.
+
+\begin{table}[ht]\centering\caption{Primary specification, development and holdout. Standard errors (year-clustered) in parentheses.}\label{tab:primary}
+\small\input{figures/tab_primary}\end{table}
+
+\begin{figure}[ht]\centering\includegraphics[width=.8\linewidth]{figures/fig1_holdout_scatter.pdf}\caption{Holdout meeting-window returns against lagged VIX.}\label{fig:scatter}\end{figure}
+\begin{figure}[ht]\centering\includegraphics[width=.6\linewidth]{figures/fig2_state_means.pdf}\caption{Mean window return by state, development versus holdout.}\label{fig:state}\end{figure}
+
+\paragraph{Exploratory secondary tests.} The VIX-change test finds no effect: the slope on the five-day VIX change is $-3.39$ ($t=-0.47$, wild $p=0.876$). The press-conference subsample (45 meetings from 2021 on) gives an anxious premium of 28.3~bps (wild $p=0.221$). No meeting in the sample has the press-conference indicator equal to zero, so the comparison with non-press meetings cannot be made. Table~\ref{tab:robust} shows the anxious premium across thresholds, leave-one-year-out samples, winsorizing and no risk-free adjustment. It ranges from 26.6 to 69.5~bps. No wild $p$-value falls below 0.05, and the smallest is 0.092.
+
+\begin{table}[ht]\centering\caption{Robustness of the holdout anxious premium (exploratory).}\label{tab:robust}
+\small\input{figures/tab_robust}\end{table}
+
+\paragraph{Interpretation.} With seven clusters and nine calm meetings, the holdout is under-powered for the state contrast: the minimum detectable effect for the anxious half is 41.9~bps at the development volatility. The evidence supports a positive meeting-window return, especially against matched non-meeting days. It does not confirm the development finding that the premium is concentrated in anxious states.
