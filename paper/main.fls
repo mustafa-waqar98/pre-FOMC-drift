@@ -167,6 +167,11 @@ INPUT ./sections/introduction.tex
 INPUT sections/introduction.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT ./sections/literature.tex
 INPUT ./sections/literature.tex
 INPUT ./sections/literature.tex
@@ -182,14 +187,9 @@ INPUT ./sections/design.tex
 INPUT ./sections/design.tex
 INPUT ./sections/design.tex
 INPUT sections/design.tex
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex
@@ -236,6 +236,7 @@ INPUT sections/conclusion.tex
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./sections/appendix.tex
 INPUT ./sections/appendix.tex
 INPUT ./sections/appendix.tex
@@ -260,3 +261,4 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
