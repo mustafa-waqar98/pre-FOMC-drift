@@ -1,6 +1,6 @@
 # Literature table (B2)
 
-Every cell below is UNVERIFIED until the batched citation pass in task T11. Nothing here was fetched; entries restate only what the repo's own notes and bibliography already assert. Cells marked "to fill in T11" are intentionally empty.
+T11 pass (2026-11-08): bibliographic details verified from RePEc/EconPapers/SSRN/NBER pages; abstract-level numbers only where stated. Lucca-Moench sample and headline estimate remain UNVERIFIED (full text not read). Nothing here was fetched; entries restate only what the repo's own notes and bibliography already assert. Cells marked "to fill in T11" are intentionally empty.
 
 | Key | Paper | Sample | Window | Headline estimate | What it identifies |
 |---|---|---|---|---|---|
@@ -14,3 +14,9 @@ Every cell below is UNVERIFIED until the batched citation pass in task T11. Noth
 - mclean2016 motivates the post-publication period split.
 - hu2022 and martello_ribeiro motivate the calm/anxious state split (H1-H3 in PRE_ANALYSIS_PLAN.md).
 - Attribution of the high-VIX figure between hu2022 and martello_ribeiro must be resolved before any number is quoted.
+
+## T11 resolutions
+- lucca2015: JF 70(1), 329-371 verified. Headline estimate and sample UNVERIFIED.
+- mclean2016: JF 71(1), 5-32 verified; 26% out-of-sample and 58% post-publication decline verified from the abstract.
+- hu2022: JFE 145(3), 909-936 verified. Abstract reports no VIX premium figure; it covers NFP, ISM, GDP overnight returns.
+- martello2018: Martello and Ribeiro, 'Pre-FOMC Announcement Relief', SSRN 3286745, Nov 2018. The 109 bps (high implied vol) vs 9.7 bps figure comes from a Quantpedia summary only: UNVERIFIED at primary source. Attribution of the high-VIX figure resolved to Martello-Ribeiro, not Hu et al.
