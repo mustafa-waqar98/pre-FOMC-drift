@@ -21,3 +21,4 @@ run_date | task | outcome | blockers
 2026-11-05 | B3 | notation appendix written in paper/sections/appendix.tex from frozen plan; T10 not started: spec-frozen tag absent from remote/fresh clone | user must push tag spec-frozen (git push origin spec-frozen)
 2026-11-06 | T10 | code/10_report.py builds 2 figures + 2 tables from saved T08/T09 outputs (no re-estimation); results.tex and data.tex drafted; paper compiles with no errors | none
 2026-11-08 | T11 | intro, literature, discussion, conclusion written; 4 citations bibliographically verified (web, one batch); Lucca-Moench numbers and Martello-Ribeiro 109/9.7 bps figure UNVERIFIED at primary; schedule cutoff removed | none
+2026-11-09 | T12 | full compile clean (0 errors, 0 undefined refs); docs/REFEREE_REVIEW.md with concerns + fix list F1-F5; README updated; release tag NOT pushed (tag push rejected 403) | user must run: git push origin v0.1-draft after pulling; B4, B5 open; 4 UNVERIFIED items remain
