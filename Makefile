@@ -3,7 +3,7 @@ PY = python3 -I
 .PHONY: all test dev report paper
 all: test dev report paper
 test:
-	python3 -m pytest -q tests
+	for t in tests/test_*.py; do python3 $$t || exit 1; done
 dev:
 	$(PY) code/05_dev_premium.py
 	$(PY) code/06_dev_calm_anxious.py
