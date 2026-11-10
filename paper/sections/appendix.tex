@@ -50,3 +50,18 @@ Inference uses CR1 cluster-robust standard errors by $g(m)$, wild cluster bootst
 
 \subsection{Sample definitions}
 Development sample: scheduled meetings from 2010-06 to 2019-12-31. Holdout: scheduled meetings from 2020-01-01. Unscheduled meetings are excluded. A meeting is usable if the meeting day and previous session are valid (no half-day, missing-trade or cash-closed flag) and $r_m$ and $\mathrm{VIX}_m$ are non-missing. Release times are a calendar rule, not observed per meeting (UNVERIFIED).
+
+
+\subsection{Development-sample sensitivity}\label{app:sens}
+Table values are anxious-state premia in basis points on the 77 development meetings (threshold 15.07), computed by \texttt{code/11\_sensitivity\_dev.py}; the holdout is not involved. Wild-bootstrap $p$-values are for the anxious-minus-calm contrast.
+\begin{center}\small\begin{tabular}{lrrrr}\toprule
+Variant & $n$ & Anxious & Contrast & Wild $p$\\\midrule
+Baseline (14:00 / 13:45 end) & 77 & 19.3 & 26.0 & 0.059\\
+End 13:45, all meetings & 77 & 20.2 & 26.8 & 0.062\\
+End 13:30, all meetings & 77 & 19.2 & 26.5 & 0.081\\
+End 12:00, all meetings & 77 & 19.8 & 22.5 & 0.070\\
+Drop 8 midday-release meetings & 69 & 7.5 & 14.1 & 0.127\\
+End 12:00 for the 8, else baseline & 77 & 12.6 & 19.2 & 0.057\\\bottomrule
+\end{tabular}\end{center}
+The eight midday-release meetings raise the development anxious premium from 7.5 to 19.3~bps, so the development benchmark against which the holdout was compared is partly inflated by announcement reactions. The sign of the state contrast survives in every variant. The frozen primary specification and the holdout result are unchanged.
+\begin{figure}[ht]\centering\includegraphics[width=.85\linewidth]{figures/fig3_dev_sensitivity.pdf}\caption{Development anxious-state premium under alternative window ends.}\label{fig:sens}\end{figure}

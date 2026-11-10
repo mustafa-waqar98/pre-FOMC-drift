@@ -27,8 +27,8 @@ first unchecked task from the BACKLOG instead. Tasks are in dependency order.
 - [x] B1 Draft the identification and threats section from docs/DESIGN_NOTES.md.
 - [x] B2 Literature table: each paper, sample, window, headline estimate, what it identifies. Mark every number UNVERIFIED until T11.
 - [x] B3 Notation and variable definition appendix.
-- [ ] B4 Reproducibility: Makefile, environment file, data dictionary.
-- [ ] B5 Sensitivity design: alternative window lengths and cutoffs, pre-specified.
+- [x] B4 Reproducibility: Makefile, environment file, data dictionary.
+- [x] B5 Sensitivity design: alternative window lengths and cutoffs, pre-specified.
 
 ## Credit rules for every run
 - Do not fetch web pages except in T11, in one batched pass.
