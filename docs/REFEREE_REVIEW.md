@@ -18,3 +18,5 @@ Build: `cd paper && latexmk -pdf main.tex` compiles with no errors, no undefined
 - F6 Added verified literature: Cieslak et al. 2019, Bernile et al. 2016, Kurov et al. 2019, Boguth et al. 2019.
 - F7 Abstract written; amendment A1 documented in docs/AMENDMENT_A1.md and paper Section 5.1; figures restyled.
 - Remaining limits (inherent): 7 year clusters, nine calm holdout meetings, futures instead of cash index, no pre-2010 intraday data, press-conference subsample excludes 2020 (run-once rule).
+- F8 Added exploratory CIs and pooled test (code/13, paper Section 5.2): holdout anxious premium 95% CI [-10.6, 86.2]; pooled contrast 13.2 bps (wild p=0.163), pooled slope 3.47 bps/pt (wild p=0.075). Post-hoc, labelled exploratory.
+- Databento covers CME e-mini only from 2010, so it cannot supply pre-2010 intraday data; it could extend 2026 meetings as they occur.

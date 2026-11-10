@@ -1,0 +1,23 @@
+{
+ "holdout_ci95_calm": [
+  27.186676003817112,
+  53.613323996182885
+ ],
+ "holdout_ci95_contrast": [
+  -56.187369540075025,
+  50.98736954007502
+ ],
+ "holdout_ci95_anxious": [
+  -10.648854652670579,
+  86.24885465267057
+ ],
+ "pooled_n": 129,
+ "pooled_clusters": 17,
+ "pooled_contrast": 13.152203361442853,
+ "pooled_contrast_se": 8.768619482852989,
+ "pooled_contrast_wild_p": 0.163,
+ "pooled_period_shift": 31.034506407267493,
+ "pooled_slope": 3.4650369448537788,
+ "pooled_slope_se": 1.3559763536815412,
+ "pooled_slope_wild_p": 0.075
+}
