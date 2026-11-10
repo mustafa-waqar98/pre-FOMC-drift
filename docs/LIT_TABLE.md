@@ -24,3 +24,4 @@ T11 pass (2026-11-08): bibliographic details verified from RePEc/EconPapers/SSRN
 ## 2026-11-10 verification
 - lucca2015: about 49 bps over 24h window (2pm day before to ~15 min before the 2:15pm release), 131 scheduled meetings, Sep 1994 to Mar 2011 (NY Fed staff report 512 abstract page). VERIFIED.
 - martello2018: SSRN 3286745 abstract (posted 14 Dec 2018) gives no 109 / 9.7 bps figures and no sample dates; figures remain UNVERIFIED (Quantpedia quote only). Full text not read.
+- martello2018 (update): primary text is a 2018 PUC-Rio master's dissertation by Martello (advisor Ribeiro); 109 / 9.7 bps stated in its introduction, baseline Sep 2003-Mar 2011, 60 meetings. VERIFIED.

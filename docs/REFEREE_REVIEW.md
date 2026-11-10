@@ -11,7 +11,10 @@ Build: `cd paper && latexmk -pdf main.tex` compiles with no errors, no undefined
 
 ## Fix list (updated 2026-11-10)
 - F1 Lucca-Moench: VERIFIED (about 49 bps, 24h window, 131 meetings, Sep 1994 to Mar 2011).
-- F2 Martello-Ribeiro 109 / 9.7 bps: STILL UNVERIFIED (SSRN abstract has no figures; third-party quote only). Needs the full text.
+- F2 Martello: VERIFIED at the primary text (2018 PUC-Rio master's dissertation, sole author Martello; advisor Ribeiro; intro p.11 states 109 / 9.7 bps; baseline sample Sep 2003-Mar 2011, 60 meetings). Attribution corrected in the bibliography.
 - F3 Release times: VERIFIED for 2011-2012 press-conference meetings (statement at 12:20-12:35 ET); 2:00 pm rule from 2013-03-13 confirmed. Eight dev meetings were mis-windowed; dev sensitivity reported in appendix; frozen spec and holdout unchanged.
 - F4 2020 press-conference flag: VERIFIED (Fed lists a press conference at all 2020 meetings). T09 subsample not rerun (run-once rule).
 - B4 and B5 done (Makefile, requirements, data dictionary, code/11_sensitivity_dev.py).
+- F6 Added verified literature: Cieslak et al. 2019, Bernile et al. 2016, Kurov et al. 2019, Boguth et al. 2019.
+- F7 Abstract written; amendment A1 documented in docs/AMENDMENT_A1.md and paper Section 5.1; figures restyled.
+- Remaining limits (inherent): 7 year clusters, nine calm holdout meetings, futures instead of cash index, no pre-2010 intraday data, press-conference subsample excludes 2020 (run-once rule).

@@ -8,6 +8,7 @@ dev:
 	$(PY) code/05_dev_premium.py
 	$(PY) code/06_dev_calm_anxious.py
 	$(PY) code/11_sensitivity_dev.py
+	$(PY) code/12_dev_corrected.py
 report:  # reads saved T08/T09 raw outputs only
 	$(PY) code/10_report.py
 	cp output/figures/*.pdf paper/figures/

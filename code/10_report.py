@@ -19,7 +19,8 @@ ax.set_title("Holdout FOMC windows, 2020\u20132026", fontsize=10, color=NAVY, lo
 ax.legend(fontsize=8, loc="upper left"); fig.tight_layout(); fig.savefig("output/figures/fig1_holdout_scatter.pdf"); plt.close(fig)
 # Figure 2: calm vs anxious means, dev vs holdout
 g = m.groupby("anx").bps.agg(["mean", "count", "sem"])
-dev = {"calm": -6.6, "anxious": 19.3}  # from output/tables/T06_calm_anxious.txt
+import json; DC = json.load(open("output/tables/dev_corrected.json"))  # amendment A1 (corrected dev benchmark)
+dev = {"calm": DC["calm"], "anxious": DC["anx"]}
 fig, ax = plt.subplots(figsize=(4.8, 3.4)); x = np.arange(2)
 ax.bar(x - .2, [dev["calm"], dev["anxious"]], .38, color=LIGHT, label="Development 2010\u201319", zorder=3)
 ax.bar(x + .2, [g.loc[0, "mean"], g.loc[1, "mean"]], .38, color=NAVY, label="Holdout 2020\u201326", zorder=3,
@@ -38,8 +39,12 @@ if os.path.exists("output/tables/B5_sensitivity_dev.csv"):
     fig.tight_layout(); fig.savefig("output/figures/fig3_dev_sensitivity.pdf"); plt.close(fig)
 # Table 1: robustness (parsed from T09 raw)
 rows = re.findall(r"^(\S.*?)\s+n=\s*(\d+) nAnx=\s*(\d+) mean=\s*([-\d.]+) anxPrem=\s*([-\d.]+) \(se ([\d.]+)\) wildp=([\d.]+)", R9, re.M)
+LAB = {"press=1 anxious premium": "Press-conference meetings only", "2021+ (flag-known sample)": "2021 onward", "baseline thr 15.07": "Baseline (threshold 15.07)",
+       "threshold 18": "Threshold 18", "threshold 20": "Threshold 20", "threshold 25": "Threshold 25", "holdout-median threshold": "Holdout-median threshold",
+       "excl 2020 (covid)": "Excluding 2020", "winsorized 5/95": "Winsorized 5/95", "no rf adjustment": "No risk-free adjustment"}
 t = ["\\begin{tabular}{lrrrrr}\\toprule", "Specification & $n$ & $n_{\\mathrm{anx}}$ & Prem. (bps) & s.e. & Wild $p$ \\\\ \\midrule"]
-for lab, n, na, mu, pr, se, p in rows:
+for lab, n, na, mu, pr, se, p in [r_ for r_ in rows if r_[0].strip() != "press=1 anxious premium"]:
+    lab = LAB.get(lab.strip(), lab)
     t.append(f"{lab.replace('_',' ').replace('%','\\%')} & {n} & {na} & {pr} & {se} & {p} \\\\")
 t += ["\\bottomrule\\end{tabular}"]
 open("paper/figures/tab_robust.tex", "w").write("\n".join(t))
@@ -48,10 +53,10 @@ f = lambda pat, s: re.search(pat, s).groups()
 a, sa = f(r"calm a=([-\d.]+) \(se ([\d.]+)\)", R8); b, sb = f(r"b=([-\d.]+) \(se ([\d.]+)", R8)
 ap, se_ap = f(r"a\+b=([-\d.]+) se=([\d.]+)", R8); pb = f(r"p\(b=0\)=([\d.]+)", R8)[0]; pab = f(r"p\(a\+b=0\)=([\d.]+)", R8)[0]
 c, sc = f(r"c=([-\d.]+) \(se ([\d.]+)", R8); pl = re.findall(r"placebo (\w+)\s+n=\s*(\d+) fed-minus-matched=\s*([-\d.]+) bps p=([\d.]+)", R8)
-t = ["\\begin{tabular}{lrr}\\toprule", " & Development & Holdout \\\\ \\midrule",
-     f"Calm mean $a$ (bps) & $-6.6$ (3.3) & {a} ({sa}) \\\\", f"Anxious$-$calm $b$ (bps) & 26.0 (11.6) & {b} ({sb}) \\\\",
-     f"Anxious premium $a+b$ (bps) & 19.3 (11.4) & {ap} ({se_ap}) \\\\", f"Wild-bootstrap $p(b=0)$ & 0.059 & {pb} \\\\",
-     f"Wild-bootstrap $p(a+b=0)$ & --- & {pab} \\\\", f"VIX slope $c$ (bps/pt) & 1.60 (0.97) & {c} ({sc}) \\\\", "\\midrule"]
-for k, n, v, p in pl: t.append(f"Placebo ({k}, $n={n}$): Fed$-$matched (bps) & --- & {v} ($p={p}$) \\\\")
-t += ["\\bottomrule\\end{tabular}"]; open("paper/figures/tab_primary.tex", "w").write("\n".join(t))
+t = ["\\begin{tabular}{lrr}\\toprule", " & Development (corrected) & Holdout \\\\ \\midrule",
+     f"Calm mean $a$ (bps) & ${DC['calm']:.1f}$ ({DC['calm_se']:.1f}) & {a} ({sa}) \\\\", f"Anxious$-$calm $b$ (bps) & {DC['diff']:.1f} ({DC['diff_se']:.1f}) & {b} ({sb}) \\\\",
+     f"Anxious premium $a+b$ (bps) & {DC['anx']:.1f} ({DC['anx_se']:.1f}) & {ap} ({se_ap}) \\\\", f"Wild-bootstrap $p(b=0)$ & {DC['wild_p_diff']:.3f} & {pb} \\\\",
+     f"Wild-bootstrap $p(a+b=0)$ & --- & {pab} \\\\", f"VIX slope $c$ (bps/pt) & {DC['slope']:.2f} ({DC['slope_se']:.2f}) & {c} ({sc}) \\\\", "\\midrule"]
+for k, n, v, p in pl: t.append(f"Placebo ({k}, $n={n}$): Fed$-$matched (bps) & {DC['placebo_'+k]['diff']:.1f} ($p={DC['placebo_'+k]['p']:.2f}$) & {v} ($p={p}$) \\\\")
+t += ["\\bottomrule\\end{tabular}"]; open("paper/figures/tab_primary.tex", "w").write(re.sub(r"(?<![\w$.])-(?=\d)", "$-$", "\n".join(t)))
 print(g.round(1).to_string())
